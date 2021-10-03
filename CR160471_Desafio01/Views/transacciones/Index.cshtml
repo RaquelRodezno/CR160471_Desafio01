@@ -1,0 +1,65 @@
+﻿@model IEnumerable<CR160471_Desafio01.Models.transacciones>
+
+@{
+    ViewBag.Title = "Transacciones";
+}
+
+<h2>Transacciones</h2>
+
+<p>
+    @Html.ActionLink("Agregar", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cuentabancaria.modena)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipotransaccion.tipotransacciones)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.monto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechatransaccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaaplicacion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.cuentabancaria.modena)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipotransaccion.tipotransacciones)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.monto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estado)
+        </td>
+        <td>
+            @*Html.DisplayFor(modelItem => item.fechatransaccion)*@
+            @item.fechatransaccion.ToString("dd/MM/yyyy")
+        </td>
+        <td>
+            @*Html.DisplayFor(modelItem => item.fechaaplicacion)*@
+            @item.fechaaplicacion.ToString("dd/MM/yyyy")
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Ver", "Details", new { id=item.id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

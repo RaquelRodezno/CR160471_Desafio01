@@ -1,0 +1,32 @@
+﻿@model CR160471_Desafio01.Models.tipotransaccion
+
+@{
+    ViewBag.Title = "Elimniar";
+}
+
+<h2>Eliminar</h2>
+
+
+<div>
+    <h4>Tipo transacción</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tipotransacciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipotransacciones)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar", "Index")
+        </div>
+    }
+</div>
